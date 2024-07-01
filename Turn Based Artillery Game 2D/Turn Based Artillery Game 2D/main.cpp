@@ -30,7 +30,17 @@ void initializePlayers() {
     currentPlayer = &players[currentPlayerIndex];
 }
 
-void drawHuman(float x, float y, float r, float g, float b) {
+void drawText(float x, float y, const char* text) {
+    glColor3f(0.0f, 0.0f, 0.0f); // Siyah renk
+    glRasterPos2f(x, y);
+
+    // Metni karakter karakter yazdýrma
+    for (int i = 0; i < strlen(text); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, text[i]);
+    }
+}
+
+void drawHuman(float x, float y, float r, float g, float b, const char* playerName) {
     const float headRadius = 10.0f;
     const float bodyHeight = 40.0f;
     const float limbLength = 20.0f;
@@ -75,6 +85,9 @@ void drawHuman(float x, float y, float r, float g, float b) {
     glVertex2f(x + 5 + limbLength * cos(45 * 3.141592653589793 / 180.0f),
         y - headRadius - bodyHeight - limbLength * sin(45 * 3.141592653589793 / 180.0f));
     glEnd();
+
+    // Oyuncu adýný çiz
+    drawText(x - 20.0f, y + 20.0f, playerName);
 }
 
 void drawScene() {
@@ -89,10 +102,10 @@ void drawScene() {
     terrain.drawWater();
 
     // Player 1'in pozisyonunu çiz
-    drawHuman(100.0f, 100.0f, 1.0f, 0.0f, 0.0f); // Kýrmýzý renk, örnek koordinatlar
+    drawHuman(100.0f, 100.0f, 1.0f, 0.0f, 0.0f, "Player 1"); // Kýrmýzý renk, örnek koordinatlar
 
     // Player 2'nin pozisyonunu çiz
-    drawHuman(700.0f, 500.0f, 0.0f, 1.0f, 0.0f); // Yeþil renk, örnek koordinatlar
+    drawHuman(700.0f, 100.0f, 0.6f, 0.7f, 0.2f, "Player 2"); // Fýstýk yeþili renk, örnek koordinatlar
 
     glutSwapBuffers();
 }

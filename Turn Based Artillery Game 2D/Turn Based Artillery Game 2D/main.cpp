@@ -5,6 +5,7 @@
 #include "PhysicsEngine.h"
 #include <iostream>
 #include <vector>
+#include <thread>
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -29,10 +30,6 @@ void initializePlayers(const std::string& playerName1, const std::string& player
 }
 
 void drawScene() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
-    gluLookAt(WIDTH / 2, 400, HEIGHT * 1.5, WIDTH / 2, 0, HEIGHT / 2, 0, 1, 0);
-
     // Draw terrain
     terrain.drawTerrain();
 
@@ -51,8 +48,6 @@ void drawScene() {
             players[1].drawText(680.0f, 120.0f);
         }
     }
-
-    glutSwapBuffers();
 }
 
 void reshape(int w, int h) {
@@ -91,9 +86,21 @@ void keyboard(unsigned char key, int x, int y) {
     case 'f':
         // TODO: Fire
         break;
+    case 'q':
+    case 27: // Escape tuþu
+        exit(0); // Uygulamadan çýkýþ
+        break;
     default:
         break;
     }
+}
+
+void mouse(int button, int state, int x, int y) {
+    // Fare tuþlarýna göre iþlemler
+}
+
+void motion(int x, int y) {
+    // Fare hareketine göre iþlemler
 }
 
 void update(int value) {
@@ -101,6 +108,17 @@ void update(int value) {
 
     glutPostRedisplay();
     glutTimerFunc(16, update, 0);
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+    gluLookAt(WIDTH / 2, 400, HEIGHT * 1.5, WIDTH / 2, 0, HEIGHT / 2, 0, 1, 0);
+
+    // Diðer çizim fonksiyonlarýný burada çaðýrýn
+    drawScene();
+
+    glutSwapBuffers();
 }
 
 int main(int argc, char** argv) {
@@ -111,12 +129,20 @@ int main(int argc, char** argv) {
 
     init(); // Initialize settings
 
-    glutDisplayFunc(drawScene);
+    glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);
-    glutTimerFunc(16, update, 0);
+    glutMouseFunc(mouse);
+    glutMotionFunc(motion);
+    glutTimerFunc(0, update, 0);
+
+    // Fizik güncellemeleri için yeni bir thread oluþtur
+    std::thread physicsThread(update, 0);
 
     glutMainLoop();
+
+    // Thread'in sonlanmasýný bekleyin
+    physicsThread.join();
 
     return 0;
 }

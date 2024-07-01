@@ -1,0 +1,17 @@
+﻿  Artillery.cpp
+  main.cpp
+  PhysicsEngine.cpp
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\PhysicsEngine.cpp(7,14): warning C4244: 'başlatılıyor': 'double' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\PhysicsEngine.cpp(8,14): warning C4244: 'başlatılıyor': 'double' - 'float' dönüşümü; veri kaybı olabilir
+  Player.cpp
+  Terrain.cpp
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(15,30): warning C4244: 'başlatılıyor': 'double' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(16,32): warning C4244: 'başlatılıyor': 'double' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(44,42): warning C4244: 'bağımsız değişken': 'int' - 'GLfloat' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(44,24): warning C4244: 'bağımsız değişken': 'int' - 'GLfloat' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(56,50): warning C4244: 'bağımsız değişken': 'int' - 'GLfloat' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(56,26): warning C4244: 'bağımsız değişken': 'int' - 'GLfloat' dönüşümü; veri kaybı olabilir
+C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\Turn Based Artillery Game 2D\Terrain.cpp(71,25): warning C4244: 'başlatılıyor': 'double' - 'float' dönüşümü; veri kaybı olabilir
+  Kod Üretiliyor...
+  Turn Based Artillery Game 2D.vcxproj -> C:\Users\aayse\Source\repos\Turn-Based-Artillery-Game-2D\Turn Based Artillery Game 2D\x64\Debug\Turn Based Artillery Game 2D.exe
+          1 file(s) copied.

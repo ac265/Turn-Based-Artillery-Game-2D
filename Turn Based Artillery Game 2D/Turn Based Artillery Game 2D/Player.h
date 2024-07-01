@@ -1,26 +1,31 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include <string>
 
 class Player {
+public:
+    Player(const std::string& n = "", float a = 0.0f, float p = 0.0f, bool t = false);
+
+    const std::string& getName() const;
+
+    float getAngle() const;
+    void setAngle(float a);
+
+    float getPower() const;
+    void setPower(float p);
+
+    bool getTurn() const;
+    void setTurn(bool t);
+
+    void drawHuman(float x, float y, float r, float g, float b) const;
+    void drawText(float x, float y) const;
+
 private:
     std::string name;
-    float angle;    // Atýþ açýsý (derece cinsinden)
-    float power;    // Atýþ gücü
-    bool turn;      // Sýra kontrolü
-
-public:
-    // Constructor
-    Player(const std::string& n, float a = 45.0f, float p = 50.0f, bool t = false);
-
-    // Getter methods
-    const std::string& getName() const;
-    float getAngle() const;
-    float getPower() const;
-    bool getTurn() const;
-
-    // Setter methods
-    void setAngle(float a);
-    void setPower(float p);
-    void setTurn(bool t);
+    float angle;
+    float power;
+    bool turn;
 };
+
+#endif // PLAYER_H

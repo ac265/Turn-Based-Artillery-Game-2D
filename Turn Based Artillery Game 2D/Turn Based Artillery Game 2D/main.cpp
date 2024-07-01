@@ -5,7 +5,6 @@
 #include "PhysicsEngine.h"
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -14,80 +13,19 @@ Terrain terrain;
 PhysicsEngine physicsEngine;
 
 std::vector<Player> players;
-std::vector<Artillery> player1Artilleries;
-std::vector<Artillery> player2Artilleries;
-
-Player* currentPlayer;
+Player* currentPlayer = nullptr;
 int currentPlayerIndex = 0;
 
 bool gameStarted = false;
 bool gameEnded = false;
 
-void initializePlayers() {
-    players.push_back(Player("Player 1"));
-    players.push_back(Player("Player 2"));
+void initializePlayers(const std::string& playerName1, const std::string& playerName2) {
+    players.clear();
+    players.push_back(Player(playerName1));
+    players.push_back(Player(playerName2));
 
+    currentPlayerIndex = 0;
     currentPlayer = &players[currentPlayerIndex];
-}
-
-void drawText(float x, float y, const char* text) {
-    glColor3f(0.0f, 0.0f, 0.0f); // Siyah renk
-    glRasterPos2f(x, y);
-
-    // Metni karakter karakter yazdýrma
-    for (int i = 0; i < strlen(text); ++i) {
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, text[i]);
-    }
-}
-
-void drawHuman(float x, float y, float r, float g, float b, const char* playerName) {
-    const float headRadius = 10.0f;
-    const float bodyHeight = 40.0f;
-    const float limbLength = 20.0f;
-
-    glColor3f(r, g, b); // Renk
-
-    // Baþ
-    glBegin(GL_TRIANGLE_FAN);
-    glVertex2f(x, y);
-    for (int i = 0; i <= 360; i += 10) {
-        float angle = static_cast<float>(i) * 3.141592653589793 / 180.0f;
-        float px = x + headRadius * cos(angle);
-        float py = y + headRadius * sin(angle);
-        glVertex2f(px, py);
-    }
-    glEnd();
-
-    // Vücut
-    glBegin(GL_QUADS);
-    glVertex2f(x - 5, y - headRadius);
-    glVertex2f(x + 5, y - headRadius);
-    glVertex2f(x + 5, y - headRadius - bodyHeight);
-    glVertex2f(x - 5, y - headRadius - bodyHeight);
-    glEnd();
-
-    // Kol ve Bacaklar
-    glBegin(GL_LINES);
-    // Sol Kol
-    glVertex2f(x - 5, y - headRadius - bodyHeight / 2);
-    glVertex2f(x - 5 - limbLength * cos(45 * 3.141592653589793 / 180.0f),
-        y - headRadius - bodyHeight / 2 - limbLength * sin(45 * 3.141592653589793 / 180.0f));
-    // Sað Kol
-    glVertex2f(x + 5, y - headRadius - bodyHeight / 2);
-    glVertex2f(x + 5 + limbLength * cos(45 * 3.141592653589793 / 180.0f),
-        y - headRadius - bodyHeight / 2 - limbLength * sin(45 * 3.141592653589793 / 180.0f));
-    // Sol Bacak
-    glVertex2f(x - 5, y - headRadius - bodyHeight);
-    glVertex2f(x - 5 - limbLength * cos(45 * 3.141592653589793 / 180.0f),
-        y - headRadius - bodyHeight - limbLength * sin(45 * 3.141592653589793 / 180.0f));
-    // Sað Bacak
-    glVertex2f(x + 5, y - headRadius - bodyHeight);
-    glVertex2f(x + 5 + limbLength * cos(45 * 3.141592653589793 / 180.0f),
-        y - headRadius - bodyHeight - limbLength * sin(45 * 3.141592653589793 / 180.0f));
-    glEnd();
-
-    // Oyuncu adýný çiz
-    drawText(x - 20.0f, y + 20.0f, playerName);
 }
 
 void drawScene() {
@@ -95,17 +33,24 @@ void drawScene() {
     glLoadIdentity();
     gluLookAt(WIDTH / 2, 400, HEIGHT * 1.5, WIDTH / 2, 0, HEIGHT / 2, 0, 1, 0);
 
-    // Tepeleri ve vadileri çiz
+    // Draw terrain
     terrain.drawTerrain();
 
-    // Su birikintilerini çiz
+    // Draw water bodies
     terrain.drawWater();
 
-    // Player 1'in pozisyonunu çiz
-    drawHuman(100.0f, 100.0f, 1.0f, 0.0f, 0.0f, "Player 1"); // Kýrmýzý renk, örnek koordinatlar
+    // Draw players if they exist in the vector
+    if (!players.empty()) {
+        // Draw Player 1's position and name
+        players[0].drawHuman(100.0f, 100.0f, 1.0f, 0.0f, 0.0f);
+        players[0].drawText(80.0f, 120.0f);
 
-    // Player 2'nin pozisyonunu çiz
-    drawHuman(700.0f, 100.0f, 0.6f, 0.7f, 0.2f, "Player 2"); // Fýstýk yeþili renk, örnek koordinatlar
+        // Draw Player 2's position and name if it exists
+        if (players.size() > 1) {
+            players[1].drawHuman(700.0f, 100.0f, 0.6f, 0.7f, 0.2f);
+            players[1].drawText(680.0f, 120.0f);
+        }
+    }
 
     glutSwapBuffers();
 }
@@ -119,13 +64,8 @@ void reshape(int w, int h) {
 }
 
 void init() {
-    glClearColor(0.7f, 0.9f, 1.0f, 1.0f); // Açýk mavi arka plan
-    glEnable(GL_DEPTH_TEST); // Derinlik testini etkinleþtir
-}
-
-void switchTurn() {
-    currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
-    currentPlayer = &players[currentPlayerIndex];
+    glClearColor(0.7f, 0.9f, 1.0f, 1.0f); // Light blue background
+    glEnable(GL_DEPTH_TEST); // Enable depth testing
 }
 
 void keyboard(unsigned char key, int x, int y) {
@@ -133,23 +73,23 @@ void keyboard(unsigned char key, int x, int y) {
     case ' ':
         if (!gameStarted) {
             gameStarted = true;
-            initializePlayers();
+            initializePlayers("Player 1", "Player 2");
         }
         break;
     case 'a':
-        // TODO: Açýyý azalt
+        // TODO: Decrease angle
         break;
     case 'd':
-        // TODO: Açýyý arttýr
+        // TODO: Increase angle
         break;
     case 'w':
-        // TODO: Gücü arttýr
+        // TODO: Increase power
         break;
     case 's':
-        // TODO: Gücü azalt
+        // TODO: Decrease power
         break;
     case 'f':
-        // TODO: Ateþ et
+        // TODO: Fire
         break;
     default:
         break;
@@ -157,7 +97,7 @@ void keyboard(unsigned char key, int x, int y) {
 }
 
 void update(int value) {
-    // TODO: Fizik güncellemeleri burada yapýlacak
+    // TODO: Perform physics updates here
 
     glutPostRedisplay();
     glutTimerFunc(16, update, 0);
@@ -169,7 +109,7 @@ int main(int argc, char** argv) {
     glutInitWindowSize(WIDTH, HEIGHT);
     glutCreateWindow("2D Turn-Based Artillery Game");
 
-    init(); // Baþlangýç ayarlarý
+    init(); // Initialize settings
 
     glutDisplayFunc(drawScene);
     glutReshapeFunc(reshape);

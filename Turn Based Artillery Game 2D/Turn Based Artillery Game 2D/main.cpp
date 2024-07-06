@@ -36,8 +36,8 @@ void initializePlayers(const std::string& playerName1, const std::string& player
     //player2Artilleries.push_back(Artillery(700.0f, 100.0f, true)); // Example artillery units
     //player2Artilleries.push_back(Artillery(680.0f, 120.0f, true)); // Example artillery units
 
-    currentPlayerIndex = 0;
-    currentPlayer = &players[currentPlayerIndex];
+    //currentPlayerIndex = 0;
+    //currentPlayer = &players[currentPlayerIndex];
 }
 
 void drawScene() {
@@ -45,19 +45,32 @@ void drawScene() {
     terrain.drawTerrain();
     terrain.drawWater();
 
+    // Draw players
     if (!players.empty()) {
+        // Draw Player 1 (top-left corner)
         players[0].drawHuman(100.0f, 100.0f, 1.0f, 0.0f, 0.0f);
         players[0].drawText(80.0f, 120.0f);
-        //for (const auto& artillery : artilleryUnits) {
-        //    artillery.drawArtillery(1.0f, 0.0f, 0.0f);
-        //}
 
+        // Display Player 1 score and artillery count
+        std::string player1Info = "Score: " + std::to_string(players[0].getScore()) + "\nArtillery: " + std::to_string(players[0].getArtilleryCount());
+        glColor3f(0.0f, 0.0f, 0.0f); // Black color
+        glRasterPos2f(60.0f, 140.0f); // Adjust position as needed
+        for (unsigned int i = 0; i < player1Info.length(); ++i) {
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, player1Info[i]);
+        }
+
+        // Draw Player 2 (top-right corner)
         if (players.size() > 1) {
             players[1].drawHuman(700.0f, 100.0f, 0.6f, 0.7f, 0.2f);
             players[1].drawText(680.0f, 120.0f);
-            //for (const auto& artillery : artilleryUnits) {
-            //    artillery.drawArtillery(0.6f, 0.7f, 0.2f);
-            //}
+
+            // Display Player 2 score and artillery count
+            std::string player2Info = "Score: " + std::to_string(players[1].getScore()) + "\nArtillery: " + std::to_string(players[1].getArtilleryCount());
+            glColor3f(0.0f, 0.0f, 0.0f); // Black color
+            glRasterPos2f(660.0f, 140.0f); // Adjust position as needed
+            for (unsigned int i = 0; i < player2Info.length(); ++i) {
+                glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, player2Info[i]);
+            }
         }
     }
 }
@@ -116,9 +129,11 @@ void keyboard(unsigned char key, int x, int y) {
         break;
     case '1':
         currentPlayerIndex = 0; // Player 1'i seç
+        currentPlayer = &players[currentPlayerIndex];
         break;
     case '2':
         currentPlayerIndex = 1; // Player 2'yi seç
+        currentPlayer = &players[currentPlayerIndex];
         break;
     case 'a':
         // TODO: Decrease angle
@@ -179,6 +194,7 @@ void mouse(int button, int state, int x, int y) {
         {
             if (gameStarted && currentPlayer != nullptr) {
                 std::vector<Artillery>& playerArtilleries = currentPlayer->getArtilleryUnits();
+
                 for (auto& artillery : playerArtilleries) {
                     float glX = static_cast<float>(x);
                     float glY = static_cast<float>(HEIGHT - y);

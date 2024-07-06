@@ -23,6 +23,8 @@ public:
     void drawHuman(float x, float y, float r, float g, float b) const;
     void drawText(float x, float y) const;
     void addArtillery(float startX, float startY);
+    int getScore() const;
+    int getArtilleryCount() const;
 
 
     std::vector<Artillery>& getArtilleryUnits(); // Getter for artillery list
@@ -33,6 +35,7 @@ private:
     float angle;
     float power;
     bool turn;
+    int score;
     std::vector<Artillery> artilleryUnits; // List of artillery units
 };
 

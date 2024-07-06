@@ -99,3 +99,12 @@ void Player::addArtillery(float startX, float startY) {
 std::vector<Artillery>& Player::getArtilleryUnits() {
     return artilleryUnits;
 }
+
+int Player::getScore() const {
+    // Return a placeholder value or implement score logic based on your game rules
+    return score;
+}
+
+int Player::getArtilleryCount() const {
+    return artilleryUnits.size();
+}

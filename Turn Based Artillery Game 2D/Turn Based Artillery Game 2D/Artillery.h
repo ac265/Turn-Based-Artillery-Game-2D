@@ -8,8 +8,7 @@ private:
     bool alive;
 
 public:
-    Artillery(float startX = 0.0f, float startY = 0.0f, bool startAlive = true);  // Constructor declaration
-
+    Artillery(float startX = 0.0f, float startY = 0.0f, bool startAlive = true);
     void drawArtillery() const;
     float getX() const;
     void setX(float newX);

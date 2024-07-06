@@ -174,6 +174,19 @@ void mouse(int button, int state, int x, int y) {
             gameStarted = true;
             initializePlayers("Player 1", "Player 2");
         }
+
+        if (gameStarted == true)
+        {
+            if (gameStarted && currentPlayer != nullptr) {
+                std::vector<Artillery>& playerArtilleries = currentPlayer->getArtilleryUnits();
+                for (auto& artillery : playerArtilleries) {
+                    float glX = static_cast<float>(x);
+                    float glY = static_cast<float>(HEIGHT - y);
+                    artillery.rotateTowardsMouse(glX, glY);
+                }
+                glutPostRedisplay();
+            }
+        }
     }
 }
 

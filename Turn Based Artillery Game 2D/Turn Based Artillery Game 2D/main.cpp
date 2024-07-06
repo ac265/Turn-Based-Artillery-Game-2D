@@ -19,35 +19,78 @@ int currentPlayerIndex = 0;
 
 bool gameStarted = false;
 bool gameEnded = false;
+std::vector<Artillery> artilleryUnits;
 
 void initializePlayers(const std::string& playerName1, const std::string& playerName2) {
     players.clear();
+
+    //Player1
     players.push_back(Player(playerName1));
+    //std::vector<Artillery>& player1Artilleries = players[0].getArtilleryUnits();
+    //player1Artilleries.push_back(Artillery(100.0f, 100.0f, true)); // Example artillery units
+    //player1Artilleries.push_back(Artillery(120.0f, 120.0f, true)); // Example artillery units
+
+    //Player2
     players.push_back(Player(playerName2));
+    //std::vector<Artillery>& player2Artilleries = players[1].getArtilleryUnits();
+    //player2Artilleries.push_back(Artillery(700.0f, 100.0f, true)); // Example artillery units
+    //player2Artilleries.push_back(Artillery(680.0f, 120.0f, true)); // Example artillery units
 
     currentPlayerIndex = 0;
     currentPlayer = &players[currentPlayerIndex];
 }
 
 void drawScene() {
-    // Draw terrain
+    // Draw terrain, water, and players
     terrain.drawTerrain();
-
-    // Draw water bodies
     terrain.drawWater();
 
-    // Draw players if they exist in the vector
     if (!players.empty()) {
-        // Draw Player 1's position and name
         players[0].drawHuman(100.0f, 100.0f, 1.0f, 0.0f, 0.0f);
         players[0].drawText(80.0f, 120.0f);
+        //for (const auto& artillery : artilleryUnits) {
+        //    artillery.drawArtillery(1.0f, 0.0f, 0.0f);
+        //}
 
-        // Draw Player 2's position and name if it exists
         if (players.size() > 1) {
             players[1].drawHuman(700.0f, 100.0f, 0.6f, 0.7f, 0.2f);
             players[1].drawText(680.0f, 120.0f);
+            //for (const auto& artillery : artilleryUnits) {
+            //    artillery.drawArtillery(0.6f, 0.7f, 0.2f);
+            //}
         }
     }
+}
+
+void drawStartButton() {
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+    gluOrtho2D(0, WIDTH, 0, HEIGHT);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    // Draw button text
+    glColor3f(1.0, 1.0, 1.0);
+    glRasterPos2f(WIDTH / 2 - 25 , HEIGHT - 75); // Adjust text position
+    std::string buttonText = gameStarted ? "Game Started" : "Start Game";
+    for (char c : buttonText) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+
+    // Draw start button
+    glColor3f(0.5, 0.5, 0.5);
+    glBegin(GL_QUADS);
+    glVertex2f(WIDTH / 2 - 50, HEIGHT - 50);   // Top left corner
+    glVertex2f(WIDTH / 2 + 50, HEIGHT - 50);   // Top right corner
+    glVertex2f(WIDTH / 2 + 50, HEIGHT - 100);  // Bottom right corner
+    glVertex2f(WIDTH / 2 - 50, HEIGHT - 100);  // Bottom left corner
+    glEnd();
+
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+    glMatrixMode(GL_MODELVIEW);
 }
 
 void reshape(int w, int h) {
@@ -70,6 +113,12 @@ void keyboard(unsigned char key, int x, int y) {
             gameStarted = true;
             initializePlayers("Player 1", "Player 2");
         }
+        break;
+    case '1':
+        currentPlayerIndex = 0; // Player 1'i seç
+        break;
+    case '2':
+        currentPlayerIndex = 1; // Player 2'yi seç
         break;
     case 'a':
         // TODO: Decrease angle
@@ -97,6 +146,35 @@ void keyboard(unsigned char key, int x, int y) {
 
 void mouse(int button, int state, int x, int y) {
     // Fare tuþlarýna göre iþlemler
+
+    // OpenGL koordinatlarýna dönüþtürülmüþ fare pozisyonlarý
+    float glX = static_cast<float>(x);
+    float glY = static_cast<float>(HEIGHT - y); // Y koordinatýný ters çevir
+
+    // Dikdörtgenin köþe koordinatlarýný belirle
+    float buttonLeft = WIDTH / 2 - 50;
+    float buttonRight = WIDTH / 2 + 50;
+    float buttonBottom = HEIGHT - 100;
+    float buttonTop = HEIGHT - 50;
+
+    // Fare týklama olaylarý
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
+        // Sað týklama: yeni topçu ünitesi oluþtur
+        if (gameStarted && currentPlayer != nullptr) {
+
+            //artilleryUnits.emplace_back(glX, glY, true);
+            currentPlayer->addArtillery(glX, glY);
+
+            glutPostRedisplay(); // Yeniden çizim isteði
+        }
+    }
+    else if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+        // Sol týklama: baþlatma butonu kontrolü
+        if (!gameStarted && glX >= buttonLeft && glX <= buttonRight && glY >= buttonBottom && glY <= buttonTop) {
+            gameStarted = true;
+            initializePlayers("Player 1", "Player 2");
+        }
+    }
 }
 
 void motion(int x, int y) {
@@ -115,8 +193,11 @@ void display() {
     glLoadIdentity();
     gluLookAt(WIDTH / 2, 400, HEIGHT * 1.5, WIDTH / 2, 0, HEIGHT / 2, 0, 1, 0);
 
-    // Diðer çizim fonksiyonlarýný burada çaðýrýn
+    // Draw game elements
     drawScene();
+
+    // Draw start button on top
+    drawStartButton();
 
     glutSwapBuffers();
 }

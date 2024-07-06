@@ -1,3 +1,4 @@
+// artillery.h
 #pragma once
 
 class Artillery {
@@ -7,7 +8,9 @@ private:
     bool alive;
 
 public:
-    Artillery(float startX, float startY, bool startAlive);
+    Artillery(float startX = 0.0f, float startY = 0.0f, bool startAlive = true);  // Constructor declaration
+
+    void drawArtillery() const;
     float getX() const;
     void setX(float newX);
     float getY() const;

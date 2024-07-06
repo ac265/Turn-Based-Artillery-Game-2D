@@ -78,6 +78,10 @@ void Player::drawHuman(float x, float y, float r, float g, float b) const {
     glVertex2f(x + 5 + limbLength * cos(45 * 3.141592653589793 / 180.0f),
         y - headRadius - bodyHeight - limbLength * sin(45 * 3.141592653589793 / 180.0f));
     glEnd();
+
+    for (const auto& artillery : artilleryUnits) {
+        artillery.drawArtillery();
+    }
 }
 
 void Player::drawText(float x, float y) const {
@@ -86,4 +90,12 @@ void Player::drawText(float x, float y) const {
     for (unsigned int i = 0; i < name.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, name[i]);
     }
+}
+
+void Player::addArtillery(float startX, float startY) {
+    artilleryUnits.emplace_back(startX, startY);
+}
+
+std::vector<Artillery>& Player::getArtilleryUnits() {
+    return artilleryUnits;
 }

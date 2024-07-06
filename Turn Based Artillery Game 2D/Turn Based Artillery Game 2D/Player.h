@@ -2,6 +2,8 @@
 #define PLAYER_H
 
 #include <string>
+#include <vector> // Include vector header
+#include "Artillery.h" // Include Artillery header
 
 class Player {
 public:
@@ -20,12 +22,18 @@ public:
 
     void drawHuman(float x, float y, float r, float g, float b) const;
     void drawText(float x, float y) const;
+    void addArtillery(float startX, float startY);
+
+
+    std::vector<Artillery>& getArtilleryUnits(); // Getter for artillery list
+
 
 private:
     std::string name;
     float angle;
     float power;
     bool turn;
+    std::vector<Artillery> artilleryUnits; // List of artillery units
 };
 
 #endif // PLAYER_H

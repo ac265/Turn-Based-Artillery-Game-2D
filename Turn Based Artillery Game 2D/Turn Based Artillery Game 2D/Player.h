@@ -29,6 +29,7 @@ public:
 
     std::vector<Artillery>& getArtilleryUnits(); // Getter for artillery list
 
+    void fireCurrentArtillery(float angle, float power); // Artillery'nin ateþlenmesi
 
 private:
     std::string name;

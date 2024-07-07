@@ -9,6 +9,40 @@ void drawCircle(float radius, int numSegments);
 Artillery::Artillery(float startX, float startY, bool startAlive)
     : x(startX), y(startY), rotationAngle(0.0f), alive(startAlive) {}
 
+void Artillery::fire(float angle, float power) {
+    float initialVelocityX = power * cos(angle);
+    float initialVelocityY = power * sin(angle);
+
+    velocityX = initialVelocityX;
+    velocityY = initialVelocityY;
+
+    firing = true;
+}
+
+void Artillery::update() {
+    if (firing) {
+        float gravity = 9.81f; // Yerçekimi ivmesi (m/s^2)
+        float deltaTime = 0.016f; // Zaman adýmý (örneðin, 60 FPS için)
+
+        // Hýz bileþenlerini güncelle (v = u + at)
+        float newVelocityX = velocityX;
+        float newVelocityY = velocityY - gravity * deltaTime;
+
+        // Pozisyonu güncelle (s = ut + 0.5 * a * t^2)
+        float newX = x + velocityX * deltaTime;
+        float newY = y + velocityY * deltaTime - 0.5f * gravity * deltaTime * deltaTime;
+
+        // Topun yeni konumu ve hýzý
+        x = newX;
+        y = newY;
+
+        // Örneðin, topun yere çarptýðýný kontrol etmek
+        if (newY <= 0) {
+            firing = false; // Atýþ sona erer
+        }
+    }
+}
+
 void Artillery::drawArtillery() const {
     glPushMatrix();
     glTranslatef(x, y, 0);
@@ -115,4 +149,12 @@ bool Artillery::isAlive() const {
 
 void Artillery::setAlive(bool a) {
     alive = a;
+}
+
+bool Artillery::isFiring() const {
+    return firing;
+}
+
+void Artillery::setFiring(bool isFiring) {
+    firing = isFiring;
 }

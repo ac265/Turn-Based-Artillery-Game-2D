@@ -59,6 +59,11 @@ void drawScene() {
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, player1Info[i]);
         }
 
+        const auto& artilleryUnits = players[0].getArtilleryUnits();
+        for (const auto& artillery : artilleryUnits) {
+            artillery.drawArtillery(); // Draw each artillery unit
+        }
+
         // Draw Player 2 (top-right corner)
         if (players.size() > 1) {
             players[1].drawHuman(700.0f, 100.0f, 0.6f, 0.7f, 0.2f);
@@ -71,7 +76,13 @@ void drawScene() {
             for (unsigned int i = 0; i < player2Info.length(); ++i) {
                 glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, player2Info[i]);
             }
+
+            const auto& artilleryUnits = players[1].getArtilleryUnits();
+            for (const auto& artillery : artilleryUnits) {
+                artillery.drawArtillery(); // Draw each artillery unit
+            }
         }
+
     }
 }
 
@@ -149,6 +160,12 @@ void keyboard(unsigned char key, int x, int y) {
         break;
     case 'f':
         // TODO: Fire
+        // Oyun baþladýysa ve mevcut oyuncu varsa
+        if (currentPlayer) {
+            float angle = currentPlayer->getAngle();
+            float power = currentPlayer->getPower();
+            currentPlayer->fireCurrentArtillery(angle, power);
+        }
         break;
     case 'q':
     case 27: // Escape tuþu
@@ -176,6 +193,12 @@ void mouse(int button, int state, int x, int y) {
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
         // Sað týklama: yeni topçu ünitesi oluþtur
         if (gameStarted && currentPlayer != nullptr) {
+
+            // Artillery'yi oyun alanýnda sýnýrlayabilirsiniz (opsiyonel)
+            if (glX < 0) glX = 0;
+            if (glX > WIDTH) glX = WIDTH;
+            if (glY < 0) glY = 0;
+            if (glY > HEIGHT) glY = HEIGHT;
 
             //artilleryUnits.emplace_back(glX, glY, true);
             currentPlayer->addArtillery(glX, glY);
@@ -212,6 +235,10 @@ void motion(int x, int y) {
 
 void update(int value) {
     // TODO: Perform physics updates here
+        // Artillery birimlerini güncelle
+    for (auto& artillery : artilleryUnits) {
+        artillery.update();
+    }
 
     glutPostRedisplay();
     glutTimerFunc(16, update, 0);

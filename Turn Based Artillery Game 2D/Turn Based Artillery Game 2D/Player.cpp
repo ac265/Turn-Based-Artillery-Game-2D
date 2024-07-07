@@ -79,9 +79,9 @@ void Player::drawHuman(float x, float y, float r, float g, float b) const {
         y - headRadius - bodyHeight - limbLength * sin(45 * 3.141592653589793 / 180.0f));
     glEnd();
 
-    for (const auto& artillery : artilleryUnits) {
-        artillery.drawArtillery();
-    }
+    //for (const auto& artillery : artilleryUnits) {
+    //    artillery.drawArtillery();
+    //}
 }
 
 void Player::drawText(float x, float y) const {
@@ -107,4 +107,10 @@ int Player::getScore() const {
 
 int Player::getArtilleryCount() const {
     return artilleryUnits.size();
+}
+
+void Player::fireCurrentArtillery(float angle, float power) {
+    if (!artilleryUnits.empty()) {
+        artilleryUnits.back().fire(angle, power);
+    }
 }

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Artillery.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Artillery.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,12 +19,8 @@
       "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Artillery.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Terrain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Terrain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -27,9 +31,6 @@
       "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\PhysicsEngine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.40.33807\\INCLUDE\\XMEMORY||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -38,8 +39,7 @@
       "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\PhysicsEngine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Terrain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{95372343-5D06-4467-A9FC-86E0636D1C90}|Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D.vcxproj|solutionrelative:Turn Based Artillery Game 2D\\Terrain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -49,17 +49,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\main.cpp",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\main.cpp",
               "ToolTip": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\main.cpp",
               "RelativeToolTip": "Turn Based Artillery Game 2D\\main.cpp",
-              "ViewState": "AQIAAIwAAAAAAAAAAAASwKUAAAA0AAAA",
+              "ViewState": "AQIAAKsAAAAAAAAAAAAiwLEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-30T10:53:39.428Z",
               "IsPinned": true,
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "xmemory",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
@@ -75,8 +75,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
               "ViewState": "AQIAAKYCAAAAAAAAAAAqwLsCAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-06T10:41:18.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-06T10:41:18.854Z"
             },
             {
               "$type": "Document",
@@ -88,12 +87,11 @@
               "RelativeToolTip": "Turn Based Artillery Game 2D\\Terrain.cpp",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAACIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-30T14:31:29.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T14:31:29.497Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PhysicsEngine.h",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\PhysicsEngine.h",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\PhysicsEngine.h",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "Turn Based Artillery Game 2D\\PhysicsEngine.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-30T14:44:03.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T14:44:03.207Z"
             },
             {
               "$type": "Document",
@@ -114,25 +111,23 @@
               "RelativeToolTip": "Turn Based Artillery Game 2D\\PhysicsEngine.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-30T14:43:19.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T14:43:19.009Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "Terrain.h",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Terrain.h",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\Terrain.h",
               "ToolTip": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Terrain.h",
               "RelativeToolTip": "Turn Based Artillery Game 2D\\Terrain.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-30T14:31:55.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T14:31:55.881Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Player.h",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\Player.h",
@@ -140,38 +135,36 @@
               "RelativeToolTip": "Turn Based Artillery Game 2D\\Player.h",
               "ViewState": "AQIAAAEAAAAAAAAAAAAiwAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-30T12:38:46.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T12:38:46.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Player.cpp",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\Player.cpp",
               "ToolTip": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Player.cpp",
               "RelativeToolTip": "Turn Based Artillery Game 2D\\Player.cpp",
-              "ViewState": "AQIAAFsAAAAAAAAAAAASwHEAAAAiAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAASwGEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-30T12:38:21.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Artillery.h",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Artillery.h",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\Artillery.h",
               "ToolTip": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Artillery.h",
               "RelativeToolTip": "Turn Based Artillery Game 2D\\Artillery.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-30T12:37:41.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T12:37:41.768Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Artillery.cpp",
               "DocumentMoniker": "C:\\Users\\aayse\\Source\\repos\\Turn-Based-Artillery-Game-2D\\Turn Based Artillery Game 2D\\Turn Based Artillery Game 2D\\Artillery.cpp",
               "RelativeDocumentMoniker": "Turn Based Artillery Game 2D\\Artillery.cpp",
@@ -179,8 +172,7 @@
               "RelativeToolTip": "Turn Based Artillery Game 2D\\Artillery.cpp",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAADYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-30T12:37:08.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T12:37:08.294Z"
             }
           ]
         }

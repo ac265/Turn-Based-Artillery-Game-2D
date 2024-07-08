@@ -177,54 +177,41 @@ void keyboard(unsigned char key, int x, int y) {
 }
 
 void mouse(int button, int state, int x, int y) {
-    // Fare tuþlarýna göre iþlemler
+    // Calculate scale factors based on current window size
+    float scaleX = static_cast<float>(WIDTH) / glutGet(GLUT_WINDOW_WIDTH);
+    float scaleY = static_cast<float>(HEIGHT) / glutGet(GLUT_WINDOW_HEIGHT);
 
-    // OpenGL koordinatlarýna dönüþtürülmüþ fare pozisyonlarý
-    float glX = static_cast<float>(x);
-    float glY = static_cast<float>(HEIGHT - y); // Y koordinatýný ters çevir
+    // OpenGL coordinates of mouse position
+    float glX = static_cast<float>(x) * scaleX;
+    float glY = static_cast<float>(HEIGHT - y) * scaleY; // Invert Y coordinate and scale
 
-    // Dikdörtgenin köþe koordinatlarýný belirle
-    float buttonLeft = WIDTH / 2 - 50;
-    float buttonRight = WIDTH / 2 + 50;
-    float buttonBottom = HEIGHT - 100;
-    float buttonTop = HEIGHT - 50;
+    // Button coordinates (scaled accordingly)
+    float buttonLeft = WIDTH / 2.0f - 50.0f * scaleX;
+    float buttonRight = WIDTH / 2.0f + 50.0f * scaleX;
+    float buttonBottom = HEIGHT - 100.0f * scaleY;
+    float buttonTop = HEIGHT - 50.0f * scaleY;
 
-    // Fare týklama olaylarý
+    // Mouse click events
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
-        // Sað týklama: yeni topçu ünitesi oluþtur
+        // Right click: create new artillery unit
         if (gameStarted && currentPlayer != nullptr) {
-
-            // Artillery'yi oyun alanýnda sýnýrlayabilirsiniz (opsiyonel)
-            if (glX < 0) glX = 0;
-            if (glX > WIDTH) glX = WIDTH;
-            if (glY < 0) glY = 0;
-            if (glY > HEIGHT) glY = HEIGHT;
-
-            //artilleryUnits.emplace_back(glX, glY, true);
             currentPlayer->addArtillery(glX, glY);
-
-            glutPostRedisplay(); // Yeniden çizim isteði
+            glutPostRedisplay(); // Request redraw
         }
     }
     else if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        // Sol týklama: baþlatma butonu kontrolü
+        // Left click: check start button or rotate artillery
         if (!gameStarted && glX >= buttonLeft && glX <= buttonRight && glY >= buttonBottom && glY <= buttonTop) {
             gameStarted = true;
             initializePlayers("Player 1", "Player 2");
         }
-
-        if (gameStarted == true)
-        {
-            if (gameStarted && currentPlayer != nullptr) {
-                std::vector<Artillery>& playerArtilleries = currentPlayer->getArtilleryUnits();
-
-                for (auto& artillery : playerArtilleries) {
-                    float glX = static_cast<float>(x);
-                    float glY = static_cast<float>(HEIGHT - y);
-                    artillery.rotateTowardsMouse(glX, glY);
-                }
-                glutPostRedisplay();
+        else if (gameStarted && currentPlayer != nullptr) {
+            // Rotate artillery towards mouse position
+            std::vector<Artillery>& playerArtilleries = currentPlayer->getArtilleryUnits();
+            for (auto& artillery : playerArtilleries) {
+                artillery.rotateTowardsMouse(glX, glY);
             }
+            glutPostRedisplay();
         }
     }
 }

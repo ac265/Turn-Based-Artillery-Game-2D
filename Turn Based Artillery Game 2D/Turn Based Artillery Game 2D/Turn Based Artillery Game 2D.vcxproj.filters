@@ -30,6 +30,15 @@
     <ClCompile Include="PhysicsEngine.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
+    <ClCompile Include="ShortRangeArtillery.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="LongRangeArtillery.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmoredArtillery.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artillery.h">
@@ -42,6 +51,12 @@
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsEngine.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortRangeArtillery.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="LongRangeArtillery.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
   </ItemGroup>

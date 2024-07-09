@@ -17,6 +17,7 @@ public:
     void update();
     void drawArtillery() const;
     void rotateTowardsMouse(float mouseX, float mouseY); // Rotate towards mouse position
+    void rapidFire(int numShots); // Method for rapid fire
     float getX() const;
     void setX(float newX);
     float getY() const;

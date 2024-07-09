@@ -104,6 +104,16 @@ void Artillery::rotateTowardsMouse(float mouseX, float mouseY) {
     rotationAngle = atan2(dy, dx) * 180.0f / 3.1416f;
 }
 
+void Artillery::rapidFire(int numShots) {
+    const float initialAngle = rotationAngle; // Save current angle
+    const float shotInterval = 0.1f; // Time interval between shots (adjust as needed)
+
+    for (int i = 0; i < numShots; ++i) {
+        float angle = initialAngle + i * 5.0f; // Adjust angle for each shot
+        fire(angle, 50.0f); // Example: fire with angle and power (adjust power as needed)
+    }
+}
+
 void Artillery::drawWheel(float radius, int numSpokes) const {
     glBegin(GL_POLYGON);
     for (int i = 0; i < numSpokes; ++i) {

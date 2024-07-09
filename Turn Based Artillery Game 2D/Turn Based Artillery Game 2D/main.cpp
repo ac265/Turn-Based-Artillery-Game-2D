@@ -210,6 +210,10 @@ void mouse(int button, int state, int x, int y) {
             std::vector<Artillery>& playerArtilleries = currentPlayer->getArtilleryUnits();
             for (auto& artillery : playerArtilleries) {
                 artillery.rotateTowardsMouse(glX, glY);
+
+                // Atýþý simüle et
+                //physicsEngine.simulateArtilleryMotion(artillery, angleDegrees, power, dt);
+
             }
             glutPostRedisplay();
         }

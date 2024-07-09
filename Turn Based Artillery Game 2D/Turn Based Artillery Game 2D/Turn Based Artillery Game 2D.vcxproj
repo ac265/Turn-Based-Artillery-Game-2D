@@ -171,21 +171,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArmoredArtillery.cpp" />
     <ClCompile Include="Artillery.cpp" />
-    <ClCompile Include="LongRangeArtillery.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsEngine.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ShortRangeArtillery.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artillery.h" />
-    <ClInclude Include="LongRangeArtillery.h" />
     <ClInclude Include="PhysicsEngine.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="ShortRangeArtillery.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <ItemGroup>
